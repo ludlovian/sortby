@@ -1,6 +1,6 @@
 {
   "name": "@ludlovian/sortby",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Creates sorting functions",
   "main": "src/index.mjs",
   "module": "src/index.mjs",
