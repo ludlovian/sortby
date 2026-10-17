@@ -13,7 +13,8 @@ arr.sort(sortBy(selector, desc?))
 ```
 
 Creates a sorting function based on the selected value.
-The supplied `selector` can be an attribute name, or a selector function.
+The supplied `selector` can be an attribute name, or a selector function,
+or a 2-parameter comparison function.
 
 If you want to reverse the sort order, set `desc` to a truthy value.
 

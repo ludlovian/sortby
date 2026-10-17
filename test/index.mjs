@@ -51,4 +51,14 @@ suite('sortBy', () => {
     assert.equal(fn([40, 4], [40, 3]), -1)
     assert.equal(fn([40, 5], [40, 5]), 0)
   })
+
+  test('2-param sort function', () => {
+    const sortFn = (a, b) => (a < b ? -1 : a > b ? 1 : 0)
+
+    const fn = sortBy(sortFn)
+
+    assert.equal(fn(19, 20), -1)
+    assert.equal(fn(20, 20), 0)
+    assert.equal(fn(21, 20), 1)
+  })
 })

@@ -10,6 +10,7 @@ export default function sortBy (name, desc) {
   }
 
   function compare (a, b, fn) {
+    if (fn.length === 2) return fn(a, b)
     const va = fn(a)
     const vb = fn(b)
     return va < vb ? -1 : va > vb ? 1 : 0
