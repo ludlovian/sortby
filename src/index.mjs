@@ -13,6 +13,14 @@ export default function sortBy (name, desc) {
     if (fn.length === 2) return fn(a, b)
     const va = fn(a)
     const vb = fn(b)
+    if (hasClassCompare(va, vb)) return va.constructor.compare(va, vb)
     return va < vb ? -1 : va > vb ? 1 : 0
   }
+}
+
+function hasClassCompare (a, b) {
+  return (
+    typeof a?.constructor?.compare === 'function' &&
+    a.constructor.compare === b?.constructor?.compare
+  )
 }

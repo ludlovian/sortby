@@ -61,4 +61,23 @@ suite('sortBy', () => {
     assert.equal(fn(20, 20), 0)
     assert.equal(fn(21, 20), 1)
   })
+
+  test('class compare', () => {
+    class Thing {
+      x
+      constructor (x) {
+        this.x = x
+      }
+
+      static compare (a, b) {
+        return Math.sign(a.x - b.x)
+      }
+    }
+    const fn = sortBy('foo')
+    const x10 = new Thing(10)
+    const x20 = new Thing(20)
+    assert.equal(fn({ foo: x10 }, { foo: x20 }), -1)
+    assert.equal(fn({ foo: x20 }, { foo: x20 }), 0)
+    assert.equal(fn({ foo: x20 }, { foo: x10 }), 1)
+  })
 })
